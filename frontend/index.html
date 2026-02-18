@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+  <div id="chat" class="chat"></div>
+
+  <div class="input-area">
+    <input id="msg" placeholder="Send a message..." onkeydown="if(event.key==='Enter')send()" />
+    <button onclick="send()">➤</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
