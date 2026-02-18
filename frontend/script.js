@@ -1,41 +1,30 @@
-const chatBox = document.getElementById("chat-box");
-const userInput = document.getElementById("user-input");
+const chat = document.getElementById("chat");
+const input = document.getElementById("msg");
 
-function addMessage(message, sender) {
-    const messageDiv = document.createElement("div");
-    messageDiv.classList.add("message", sender);
-    messageDiv.textContent = message;
-    chatBox.appendChild(messageDiv);
-
-    chatBox.scrollTop = chatBox.scrollHeight;
+function add(text, cls) {
+  const div = document.createElement("div");
+  div.className = `msg ${cls}`;
+  div.textContent = text;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
 }
 
-async function sendMessage() {
-    const message = userInput.value.trim();
-    if (!message) return;
+async function send() {
+  const text = input.value.trim();
+  if (!text) return;
 
-    addMessage(message, "user");
-    userInput.value = "";
+  add(text, "user");
+  input.value = "";
 
-    try {
-        const response = await fetch("http://localhost:5000/chat", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ message: message })
-        });
+  add("Typing...", "bot");
 
-        const data = await response.json();
+  const res = await fetch("http://localhost:5000/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: text })
+  });
 
-        if (data.reply) {
-            addMessage(data.reply, "bot");
-        } else {
-            addMessage("Error: Unable to get response", "bot");
-        }
-
-    } catch (error) {
-        addMessage("Server error. Make sure backend is running.", "bot");
-        console.error(error);
-    }
+  const data = await res.json();
+  chat.lastChild.remove();
+  add(data.reply || "Error", "bot");
 }

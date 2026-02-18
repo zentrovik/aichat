@@ -1,82 +1,62 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  margin: 0;
+  background: #343541;
+  font-family: system-ui;
+  display: flex;
+  justify-content: center;
 }
 
-.chat-container {
-    width: 400px;
-    height: 600px;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    overflow: hidden;
+.app {
+  width: 100%;
+  max-width: 800px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-h1 {
-    text-align: center;
-    padding: 15px;
-    margin: 0;
-    background: #4a90e2;
-    color: white;
+.chat {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
 }
 
-.chat-box {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.message {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 8px;
-    max-width: 80%;
+.msg {
+  max-width: 80%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  white-space: pre-wrap;
 }
 
 .user {
-    align-self: flex-end;
-    background: #4a90e2;
-    color: white;
+  background: #0b93f6;
+  margin-left: auto;
 }
 
 .bot {
-    align-self: flex-start;
-    background: #e4e6eb;
+  background: #444654;
 }
 
-.input-container {
-    display: flex;
-    padding: 10px;
-    border-top: 1px solid #ddd;
+.input-area {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #444;
 }
 
 input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    outline: none;
+  flex: 1;
+  padding: 12px;
+  background: #40414f;
+  border: none;
+  color: white;
+  border-radius: 6px;
 }
 
 button {
-    margin-left: 10px;
-    padding: 10px 15px;
-    border: none;
-    background: #4a90e2;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #357ab8;
+  margin-left: 10px;
+  background: #19c37d;
+  border: none;
+  padding: 0 20px;
+  border-radius: 6px;
+  cursor: pointer;
 }

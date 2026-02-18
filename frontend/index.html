@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>AI Chat App</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>AI Chat</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="chat-container">
-    <h1>AI Chat</h1>
+<div class="app">
+  <div id="chat" class="chat"></div>
 
-    <div id="chat-box" class="chat-box"></div>
-
-    <div class="input-container">
-        <input type="text" id="user-input" placeholder="Type your message..." />
-        <button onclick="sendMessage()">Send</button>
-    </div>
+  <div class="input-area">
+    <input id="msg" placeholder="Send a message..." onkeydown="if(event.key==='Enter')send()" />
+    <button onclick="send()">➤</button>
+  </div>
 </div>
 
 <script src="script.js"></script>
